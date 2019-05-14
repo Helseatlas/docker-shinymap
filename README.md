@@ -13,7 +13,7 @@ docker run -v ~/.ssh:/home/rstudio/.ssh -e PASSWORD=password --rm -p 8787:8787 h
 The ```-v``` option mounts the directory holding your ssh-files (keys
 and config, found in ```~/.ssh``` in the example above) so they
 become available within the container (in the```/home/rstudio/.ssh```
-directory. Please adjust according to where your .ssh directory
+directory). Please adjust according to where your .ssh directory
 resides on your host.
 
 The ```-e``` option sets the password to be used logging into RStudio
@@ -32,4 +32,4 @@ might be of further help.
 ## Use
 Once the container is started use git or RStudio git to checkout
 [shinymap](https://github.com/Helseatlas/shinymap). The R package
-__shinymap__ is already installed from the __master__ branch.
+_shinymap_ is already installed from the _master_ branch.
