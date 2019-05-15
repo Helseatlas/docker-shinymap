@@ -55,7 +55,7 @@ RUN echo "R_RAP_INSTANCE=${INSTANCE}" >> /home/rstudio/.Renviron
 RUN echo "R_RAP_CONFIG_PATH=${CONFIG_PATH}" >> /home/rstudio/.Renviron
 
 # add rstudio user to root group  and enable shiny server
-#ENV ROOT=TRUE
+ENV ROOT=TRUE
 #RUN export ADD=shiny && bash /etc/cont-init.d/add
 
 ## provide user shiny with corresponding environmental settings
