@@ -45,18 +45,10 @@ ARG PROXY=
 ENV http_proxy=${PROXY}
 ENV https_proxy=${PROXY}
 
-ARG INSTANCE=DEV
-ENV R_RAP_INSTANCE=${INSTANCE}
-
-ARG CONFIG_PATH=/home/rstudio/rap_config
-ENV R_RAP_CONFIG_PATH=${CONFIG_PATH}
-
 RUN touch /home/rstudio/.Renviron
 RUN echo "TZ=${TZ}" > /home/rstudio/.Renviron
 RUN echo "http_proxy=${PROXY}" >> /home/rstudio/.Renviron
 RUN echo "https_proxy=${PROXY}" >> /home/rstudio/.Renviron
-RUN echo "R_RAP_INSTANCE=${INSTANCE}" >> /home/rstudio/.Renviron
-RUN echo "R_RAP_CONFIG_PATH=${CONFIG_PATH}" >> /home/rstudio/.Renviron
 
 # add rstudio user to root group  and enable shiny server
 ENV ROOT=TRUE
@@ -66,9 +58,6 @@ ENV ROOT=TRUE
 #RUN touch /home/shiny/.Renviron
 #RUN echo "http_proxy=${PROXY}" >> /home/shiny/.Renviron
 #RUN echo "https_proxy=${PROXY}" >> /home/shiny/.Renviron
-#RUN echo "R_RAP_INSTANCE=${INSTANCE}" >> /home/shiny/.Renviron
-#RUN echo "R_RAP_CONFIG_PATH=${CONFIG_PATH}" >> /home/shiny/.Renviron
-
 
 # Install odbc package from github
 #RUN R -e "devtools::install_github('r-dbi/odbc')"
