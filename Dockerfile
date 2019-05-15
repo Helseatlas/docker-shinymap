@@ -78,3 +78,5 @@ RUN R -e "install.packages(c('testthat', 'shinytest'))"
 RUN R -e "devtools::install_github('Helseatlas/shinymap')"
 RUN R -e "shinytest::installDependencies()"
 
+# Copy PhantomJS executable to somewhere within existing PATH
+RUN cp /root/bin/phantomjs /usr/local/bin/.
