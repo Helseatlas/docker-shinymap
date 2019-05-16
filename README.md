@@ -6,9 +6,11 @@
 ## Run
 
 ### Very short docs
-Assuming docker is installed and to start the container at its initial (pristine) state, run the following command:
+Assuming docker is installed and to start the container at its initial
+(pristine) state from the latest image, run the following commands:
 ```
-docker run -v ~/.ssh:/home/rstudio/.ssh -e PASSWORD=password --rm -p 8787:8787 hnskde/shinymap:latest
+docker pull hnskde/shinymap:latest
+docker run -v ~/.ssh:/home/rstudio/.ssh -e PASSWORD=password --name shinymap_dev -p 8787:8787 hnskde/shinymap:latest
 ```
 The ```-v``` option mounts the directory holding your ssh-files (keys
 and config, found in ```~/.ssh``` in the example above) so they
@@ -19,23 +21,22 @@ resides on your host.
 The ```-e``` option sets the password to be used logging into RStudio
 in the container. Otherwise, you just have to type it...
 
-To stop a running container press ```ctr + c``` (or similar) on the same command line as the ```run``` command was issued.
+The ```--name``` option just provide the container with some sensible name,
+also for re-use later in this documentation...
 
-To start an exiting container (with your previous work preserved), run the following command:
+To stop a running container press ```ctr + c``` (or similar) on the same
+command line as the ```run``` command was issued.
+
+To start an existing container (with your previous work preserved), run the
+following command:
 ```
-docker start [container_name]
+docker start shinymap_dev
 ```
 
 To stop a container started with the above command, run:
 ```
-docker stop [container_name]
+docker stop shinymap_dev
 ```
-
-To list available container names, run the following command:
-```
-docker ps -a
-```
-From the listing provided use either _CONTAINER ID_ or _NAMES_ field for [container_name]
 
 
 After starting the container your dockerized RStudio should be
