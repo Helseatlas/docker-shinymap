@@ -8,7 +8,7 @@
 ### Very short docs
 Assuming docker is installed and to start the container at its initial (pristine) state, run the following command:
 ```
-docker run -v ~/.ssh:/home/rstudio/.ssh -e PASSWORD=password --rm -p 8787:8787 hnskde/shinymap:latest
+docker run -v ~/.ssh:/home/rstudio/.ssh -e PASSWORD=password -p 8787:8787 hnskde/shinymap:latest
 ```
 The ```-v``` option mounts the directory holding your ssh-files (keys
 and config, found in ```~/.ssh``` in the example above) so they
@@ -37,6 +37,10 @@ docker ps -a
 ```
 From the listing provided use either _CONTAINER ID_ or _NAMES_ field for [container_name]
 
+To update your docker image, run:
+```
+docker pull hnskde/shinymap
+```
 
 After starting the container your dockerized RStudio should be
 available at [localhost:8787](http://localhost:8787)
