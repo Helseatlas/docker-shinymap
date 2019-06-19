@@ -40,7 +40,7 @@ docker stop shinymap_dev
 
 
 After starting the container your dockerized RStudio should be
-available at [localhost:8787](http://localhost:8787)
+available at [localhost:8787](http://localhost:8787). Log in with username `rstudio` and password `password`.
 
 ### More docs
 Probably not spot on, but
